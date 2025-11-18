@@ -1,0 +1,1 @@
+export const LANDING_S1 = "/images/contents/section1.png";
