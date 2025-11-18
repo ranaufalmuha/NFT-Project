@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/shared/styles/globals.css";
 import Header from "./_components/Header";
 import GridPlus from "./_components/GridPlus";
+import Footer from "./_components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
         <div
           className="fixed inset-0 -z-10 pointer-events-none opacity-30 "
           aria-hidden="true"
