@@ -9,14 +9,14 @@ export default function GridPlus({
   plusSize = 6, // panjang satu sisi tanda plus (px)
   stroke = "rgba(255,255,255,0.25)", // warna grid
   plusStroke = "rgba(255,255,255,0.6)", // warna tanda plus
-  bg = "#171717", // warna dasar (abu2 lembut)
-}: {
+}: // bg = "#171717", // warna dasar (abu2 lembut)
+{
   grid?: number;
   plusGap?: number;
   plusSize?: number;
   stroke?: string;
   plusStroke?: string;
-  bg?: string;
+  // bg?: string;
 }) {
   const rawId = useId();
   const prefix = useMemo(() => {
@@ -39,7 +39,7 @@ export default function GridPlus({
             height={grid}
             patternUnits="userSpaceOnUse"
           >
-            <rect width={grid} height={grid} fill={bg} />
+            <rect width={grid} height={grid} />
             {/* garis horizontal & vertical */}
             <path d={`M 0 0 H ${grid}`} stroke={stroke} strokeWidth="1" />
             <path d={`M 0 0 V ${grid}`} stroke={stroke} strokeWidth="1" />
