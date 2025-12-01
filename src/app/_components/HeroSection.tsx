@@ -1,27 +1,109 @@
-/* eslint-disable @next/next/no-img-element */
-import { PROJECT_NAME } from "@/shared/utils/const";
-// import { LANDING_S1 } from "@/shared/utils/image";
+"use client";
+
+import React, { useLayoutEffect, useRef } from "react";
+import { gsap } from "@/shared/lib/gsap";
 
 export default function HeroSection() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLDivElement>(".hero-card");
+      const heroWelcome = document.querySelector(
+        ".hero-welcome"
+      ) as HTMLElement | null;
+
+      if (!heroWelcome || !cards.length) return;
+
+      const initialPositions = [
+        { xFactor: 0.1, yFactor: -0.18, scale: 0.9 },
+        { xFactor: -0.25, yFactor: -0.55, scale: 0.7 },
+        { xFactor: -0.2, yFactor: -0.7, scale: 0.8 },
+        { xFactor: -0.1, yFactor: -0.75, scale: 0.7 },
+        { xFactor: -0.08, yFactor: -0.55, scale: 0.5 },
+        { xFactor: -0.3, yFactor: -0.24, scale: 0.5 },
+        { xFactor: -0.75, yFactor: -0.081, scale: 0.8 },
+        { xFactor: -1.2, yFactor: -0.07, scale: 0.6 },
+      ];
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=200%",
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          markers: true,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.from(
+        cards,
+        {
+          x: (i) => {
+            const w = window.innerWidth;
+            const pos = initialPositions[i];
+            return pos ? pos.xFactor * w : 0;
+          },
+          y: (i) => {
+            const h = window.innerHeight;
+            const pos = initialPositions[i];
+            return pos ? pos.yFactor * h : 0;
+          },
+          scale: (i) => initialPositions[i]?.scale ?? 1,
+          ease: "power2.out",
+          duration: 1, // bagian pertama dari timeline
+        },
+        0
+      );
+
+      tl.from(".hero-welcome", { yPercent: 30 }, "<");
+
+      tl.to(
+        ".hero-gallery-container",
+        {
+          xPercent: -30,
+          ease: "none",
+          duration: 1,
+        },
+        ">"
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full h-[85dvh] min-h-[600px] max-h-[1200px] flex items-center justify-center relative">
-      <div className="w-4/5 max-lg:w-5/6 max-md:w-full p-4 max-md:text-center duration-300 z-20 max-w-7xl mx-auto">
-        <h1 className="font-sefa text-9xl w-3/5 max-lg:w-4/5 max-md:w-full max-sm:text-7xl duration-300">
-          {PROJECT_NAME}
-        </h1>
-      </div>
-      {/* <img
-        src={LANDING_S1}
-        alt=""
-        className="absolute w-1/2 h-full object-contain right-0 z-10"
-      /> */}
-      <img
-        src="https://i.pinimg.com/originals/9c/02/51/9c0251bcbf1114821afc3551ddb64b00.gif"
-        alt=""
-        className="bg-white absolute w-full h-full object-cover"
-        width={1920}
-        height={1080}
-      />
-    </section>
+    <div ref={containerRef} className="h-[300dvh]">
+      <section className="h-screen overflow-hidden flex flex-col items-center justify-between">
+        <div className=""></div>
+        <div className="hero-welcome flex flex-col items-center gap-4 md:gap-6 lg:gap-8 z-10 px-4 duration-300">
+          <span className="hero-eyebrow md:text-lg lg:text-xl duration-300">
+            Welcome to the Neonverse
+          </span>
+          <h1 className="hero-title text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center max-w-6xl duration-300">
+            A Futuristic NFT Universe and 100,000+ Possibilities
+          </h1>
+
+          {/* CTA  */}
+          <button className="max-md:text-sm lg:text-lg bg-primary py-3 px-5 md:py-4 md:px-6  duration-300">
+            Explore Characters
+          </button>
+        </div>
+
+        {/* Gallery  */}
+        <div className="hero-gallery-container  ml-auto flex gap-6 items-end justify-start w-[200vw] z-0">
+          <div className="hero-card w-1/12 aspect-square bg-muted">1</div>
+          <div className="hero-card w-1/10 aspect-square bg-muted">2</div>
+          <div className="hero-card w-1/8 aspect-square bg-muted">3</div>
+          <div className="hero-card w-1/12 aspect-square bg-muted">4</div>
+          <div className="hero-card w-1/9 aspect-square bg-muted">5</div>
+          <div className="hero-card w-1/8 aspect-square bg-muted">6</div>
+          <div className="hero-card w-1/10 aspect-square bg-muted">7</div>
+          <div className="hero-card w-1/12 aspect-square bg-muted">8</div>
+        </div>
+      </section>
+    </div>
   );
 }
