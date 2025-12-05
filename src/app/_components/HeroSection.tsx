@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "@/shared/lib/gsap";
 
 export default function HeroSection() {
@@ -15,14 +15,14 @@ export default function HeroSection() {
       if (!heroWelcome || !cards.length) return;
 
       const initialPositions = [
-        { xFactor: 0.1, yFactor: -0.18, scale: 0.9 },
-        { xFactor: -0.25, yFactor: -0.55, scale: 0.7 },
-        { xFactor: -0.2, yFactor: -0.7, scale: 0.8 },
-        { xFactor: -0.1, yFactor: -0.75, scale: 0.7 },
-        { xFactor: -0.08, yFactor: -0.55, scale: 0.5 },
-        { xFactor: -0.3, yFactor: -0.24, scale: 0.5 },
-        { xFactor: -0.75, yFactor: -0.081, scale: 0.8 },
-        { xFactor: -1.2, yFactor: -0.07, scale: 0.6 },
+        { xFactor: 0.1, yFactor: -0.14, scale: 0.9 },
+        { xFactor: -0.25, yFactor: -0.5, scale: 0.7 },
+        { xFactor: -0.2, yFactor: -0.65, scale: 0.8 },
+        { xFactor: -0.1, yFactor: -0.7, scale: 0.7 },
+        { xFactor: -0.08, yFactor: -0.5, scale: 0.5 },
+        { xFactor: -0.3, yFactor: -0.2, scale: 0.5 },
+        { xFactor: -0.75, yFactor: -0.07, scale: 0.8 },
+        { xFactor: -1.2, yFactor: -0.06, scale: 0.6 },
       ];
 
       const tl = gsap.timeline({
@@ -33,7 +33,6 @@ export default function HeroSection() {
           scrub: true,
           pin: true,
           anticipatePin: 1,
-          markers: true,
           invalidateOnRefresh: true,
         },
       });
@@ -58,7 +57,7 @@ export default function HeroSection() {
         0
       );
 
-      tl.from(".hero-welcome", { yPercent: 30 }, "<");
+      tl.to(".hero-welcome", { yPercent: -10 }, "<");
 
       tl.to(
         ".hero-gallery-container",
@@ -76,9 +75,9 @@ export default function HeroSection() {
 
   return (
     <div ref={containerRef} className="h-[300dvh]">
-      <section className="h-screen overflow-hidden flex flex-col items-center justify-between">
+      <section className="h-screen overflow-hidden flex flex-col items-center justify-between relative">
         <div className=""></div>
-        <div className="hero-welcome flex flex-col items-center gap-4 md:gap-6 lg:gap-8 z-10 px-4 duration-300">
+        <div className="hero-welcome flex flex-col items-center gap-4 md:gap-6 lg:gap-8 z-10 px-4 duration-300 absolute h-full w-full justify-center">
           <span className="hero-eyebrow md:text-lg lg:text-xl duration-300">
             Welcome to the Neonverse
           </span>

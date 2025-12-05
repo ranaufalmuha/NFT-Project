@@ -15,6 +15,7 @@
   --accent-2: #fed44b;
   --accent-3: #b3dc16;
   --muted: #393939;
+  --muted-foreground: #636363;
 }
 
 @theme inline {
@@ -26,6 +27,7 @@
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-sefa: sefa;
