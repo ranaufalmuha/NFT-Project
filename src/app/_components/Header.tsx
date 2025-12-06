@@ -3,8 +3,12 @@ import StaggeredMenu from "@/shared/components/StaggeredMenu";
 
 export default function Header() {
   const menuItems = [
-    { label: "Home", ariaLabel: "Go to home page", link: "/" },
-    { label: "Characters", ariaLabel: "Learn about us", link: "/" },
+    { label: "Home", ariaLabel: "Go to home page", link: "/#hero" },
+    {
+      label: "Characters",
+      ariaLabel: "Learn about us",
+      link: "/#character-section",
+    },
     { label: "Gallery", ariaLabel: "View our services", link: "/gallery" },
     { label: "Team", ariaLabel: "Get in touch", link: "/contact" },
     { label: "Community", ariaLabel: "Get in touch", link: "/community" },

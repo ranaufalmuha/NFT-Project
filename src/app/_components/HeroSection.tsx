@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "@/shared/lib/gsap";
+import Link from "next/link";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -86,9 +87,12 @@ export default function HeroSection() {
           </h1>
 
           {/* CTA  */}
-          <button className="max-md:text-sm lg:text-lg bg-primary py-3 px-5 md:py-4 md:px-6  duration-300">
+          <Link
+            href="/#character-section"
+            className="max-md:text-sm lg:text-lg bg-card py-3 px-5 md:py-4 md:px-6  duration-300"
+          >
             Explore Characters
-          </button>
+          </Link>
         </div>
 
         {/* Gallery  */}

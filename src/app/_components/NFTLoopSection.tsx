@@ -1,4 +1,5 @@
 import NFTLoop from "@/shared/components/NFTLoop";
+import Heading2 from "@/shared/components/ui/Heading2";
 
 export default function NFTLoopSection() {
   const imageLogos = [
@@ -20,10 +21,16 @@ export default function NFTLoopSection() {
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col py-28">
+      <div className="mx-auto max-w-7xl w-full mb-12 px-8 ">
+        <Heading2
+          text="A Collection With Infinite Variations"
+          className="max-w-[650px]"
+        />
+      </div>
       <NFTLoop
         logos={imageLogos}
-        speed={120}
+        speed={50}
         direction="left"
         logoHeight={200}
         gap={40}
@@ -35,7 +42,7 @@ export default function NFTLoopSection() {
       />
       <NFTLoop
         logos={imageLogos}
-        speed={120}
+        speed={50}
         direction="right"
         logoHeight={200}
         gap={40}

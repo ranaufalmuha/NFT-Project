@@ -32,7 +32,7 @@ const listCharacter: CharacterDetail[] = [
   },
 ];
 
-export default function SwitchCharacterSection() {
+export default function CharacterSection() {
   const characterCardRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -69,7 +69,10 @@ export default function SwitchCharacterSection() {
   }, []);
 
   return (
-    <section className="flex flex-col w-full relative bg-background border-y border-white/20">
+    <section
+      id="character-section"
+      className="flex flex-col w-full relative bg-background border-y border-white/20"
+    >
       <div className="w-full h-full max-w-[1400px] relative flex justify-center items-center mx-auto">
         {/* LEFT: pinned character card */}
         <div
