@@ -4,6 +4,7 @@ import "@/shared/styles/globals.css";
 import Header from "./_components/Header";
 import GridPlus from "./_components/GridPlus";
 import Footer from "./_components/Footer";
+import { ReactLenis } from "@/shared/utils/lenis";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,19 +28,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <Footer />
-        <div
-          className="fixed inset-0 -z-10 pointer-events-none opacity-30 "
-          aria-hidden="true"
+      <ReactLenis root>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <GridPlus />
-        </div>
-      </body>
+          <Header />
+          {children}
+          <Footer />
+          <div
+            className="fixed inset-0 -z-10 pointer-events-none opacity-30 "
+            aria-hidden="true"
+          >
+            <GridPlus />
+          </div>
+        </body>
+      </ReactLenis>
     </html>
   );
 }

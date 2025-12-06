@@ -11,9 +11,11 @@
   --foreground: #171717;
   --primary: #3256c4;
   --secondary: #3a4257;
+  --accent: #cc11f0;
   --accent-1: #ee3725;
   --accent-2: #fed44b;
   --accent-3: #b3dc16;
+  --card: #6300ff;
   --muted: #393939;
   --muted-foreground: #636363;
 }
@@ -23,9 +25,11 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --color-accent-1: var(--accent-1);
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
+  --color-card: var(--card);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
