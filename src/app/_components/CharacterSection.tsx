@@ -17,7 +17,7 @@ const listCharacter: CharacterDetail[] = [
   {
     name: "Nova",
     info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus quae non perspiciatis quas, soluta minus cumque a amet sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, dolorum!",
-    hobby: "Skateboard",
+    hobby: "Rich",
     born: "2010",
     imageUrl: "/images/character/2.png",
     profileImageUrl: "/images/character/p-2.png",
@@ -25,7 +25,7 @@ const listCharacter: CharacterDetail[] = [
   {
     name: "Vex",
     info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus quae non perspiciatis quas, soluta minus cumque a amet sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, dolorum!",
-    hobby: "Skateboard",
+    hobby: "Hacker",
     born: "2010",
     imageUrl: "/images/character/3.png",
     profileImageUrl: "/images/character/p-3.png",
@@ -79,7 +79,7 @@ export default function CharacterSection() {
           ref={characterCardRef}
           className="absolute top-0 flex items-center w-full h-screen"
         >
-          <div className="w-1/2 scale-80">
+          <div className="w-full md:w-3/4 xl:w-1/2 scale-80 duration-300">
             <CharacterCard character={listCharacter[activeIndex]} />
           </div>
         </div>
@@ -107,7 +107,7 @@ function CardCharacterInfo({
       className="card-character-info h-screen flex flex-col justify-center"
       data-index={index}
     >
-      <div className="ml-auto flex flex-col gap-6 backdrop-blur-sm bg-muted/20 p-8 border border-white/10 max-w-[450px]">
+      <div className="ml-auto flex flex-col gap-6 backdrop-blur-2xl bg-muted/20 p-8 border border-white/10 max-w-[450px]">
         <div className="flex flex-col gap-6">
           <h2
             className={`font-sefa uppercase flex items-center w-full text-5xl`}
@@ -115,18 +115,18 @@ function CardCharacterInfo({
             {character.name}
           </h2>
 
-          <div className="text-sm flex flex-col gap-3 text-justify mt-4">
-            <h3 className="uppercase text-xs text-muted-foreground font-bold">
+          <div className="flex flex-col gap-4 text-justify mt-4">
+            <h3 className="uppercase text-sm text-muted-foreground font-bold hidden">
               info
             </h3>
             <p>{character.info}</p>
             <hr className="border-t border-white/10" />
-            <h3 className="uppercase text-xs text-muted-foreground font-bold">
+            <h3 className="uppercase text-sm text-muted-foreground font-bold hidden">
               hobby
             </h3>
             <p>{character.hobby}</p>
             <hr className="border-t border-white/10" />
-            <h3 className="uppercase text-xs text-muted-foreground font-bold">
+            <h3 className="uppercase text-sm text-muted-foreground font-bold hidden">
               born
             </h3>
             <p>{character.born}</p>

@@ -1,6 +1,5 @@
-import ActionCallSection from "./_components/ActionCallSection";
 import HeroSection from "./_components/HeroSection";
-import NFTLoopSection from "./_components/NFTLoopSection";
+import NFTShowcaseSection from "./_components/NFTShowcaseSection";
 import CharacterSection from "./_components/CharacterSection";
 import TeamSection from "./_components/TeamSection";
 import AboutSection from "./_components/AboutSection";
@@ -13,10 +12,9 @@ export default function Home() {
         <HeroSection />
         <CharacterSection />
         <AboutSection />
-        <ActionCallSection />
-        <NFTLoopSection />
+        <NFTShowcaseSection />
         <TeamSection />
-        <div className=""></div>
+        <div className="mb-28"></div>
       </main>
     </div>
   );

@@ -8,6 +8,8 @@ export default function Heading2({
   className?: string;
 }) {
   return (
-    <h2 className={`text-xl ${className} text-title uppercase`}>{text}</h2>
+    <h2 className={`lg:text-xl ${className} text-title uppercase duration-300`}>
+      {text}
+    </h2>
   );
 }
