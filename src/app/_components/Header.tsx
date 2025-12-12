@@ -5,13 +5,13 @@ export default function Header() {
   const menuItems = [
     { label: "Home", ariaLabel: "Go to home page", link: "/#hero" },
     {
-      label: "Characters",
+      label: "about",
       ariaLabel: "Learn about us",
-      link: "/#character-section",
+      link: "/#about",
     },
-    { label: "Gallery", ariaLabel: "View our services", link: "/gallery" },
-    { label: "Team", ariaLabel: "Get in touch", link: "/contact" },
-    { label: "Community", ariaLabel: "Get in touch", link: "/community" },
+    { label: "Gallery", ariaLabel: "View our services", link: "/#gallery" },
+    { label: "Team", ariaLabel: "Get in touch", link: "/#team" },
+    { label: "Merch", ariaLabel: "Get in touch", link: "/merch" },
   ];
 
   const socialItems = [

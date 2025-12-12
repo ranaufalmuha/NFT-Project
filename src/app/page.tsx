@@ -10,8 +10,8 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col">
         <div id="hero" />
         <HeroSection />
-        <CharacterSection />
         <AboutSection />
+        <CharacterSection />
         <NFTShowcaseSection />
         <TeamSection />
         <div className="mb-28"></div>
