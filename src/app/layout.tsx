@@ -32,14 +32,16 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header />
-          {children}
-          <Footer />
-          <div
-            className="fixed inset-0 -z-10 pointer-events-none opacity-30 "
-            aria-hidden="true"
-          >
-            <GridPlus />
+          <div className="min-h-screen flex flex-col justify-between">
+            <Header />
+            {children}
+            <Footer />
+            <div
+              className="fixed inset-0 -z-10 pointer-events-none opacity-30 "
+              aria-hidden="true"
+            >
+              <GridPlus />
+            </div>
           </div>
         </body>
       </ReactLenis>

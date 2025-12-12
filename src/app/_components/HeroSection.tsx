@@ -5,6 +5,7 @@ import { gsap } from "@/shared/lib/gsap";
 import Link from "next/link";
 import nftList from "@/shared/assets/gallery.json";
 import Button from "@/shared/components/ui/Button";
+import { PROJECT_NAME } from "@/shared/utils/const";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -46,7 +47,7 @@ export default function HeroSection() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=300%",
+          end: "+=200%",
           scrub: true,
           pin: true,
           anticipatePin: 1,
@@ -59,10 +60,12 @@ export default function HeroSection() {
             images.forEach((img) => {
               if (shouldClearBlur) {
                 img.classList.remove("blur-2xl");
+                img.classList.add("hover:scale-105");
               } else {
                 // cuma tambah lagi kalau belum ada biar nggak spam
                 if (!img.classList.contains("blur-2xl")) {
                   img.classList.add("blur-2xl");
+                  img.classList.remove("hover:scale-105");
                 }
               }
             });
@@ -112,7 +115,7 @@ export default function HeroSection() {
         <div className=""></div>
         <div className="hero-welcome flex flex-col items-center gap-4 md:gap-6 lg:gap-8 z-10 px-4 duration-300 absolute h-full w-full justify-center pointer-events-none">
           <span className="hero-eyebrow md:text-lg lg:text-xl duration-300 text-title uppercase">
-            Welcome to the Neonverse
+            Welcome to the {PROJECT_NAME}
           </span>
           <h1 className="hero-title text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center max-w-6xl duration-300">
             A Futuristic NFT Universe and 100,000+ Possibilities
