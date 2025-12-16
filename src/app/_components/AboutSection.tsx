@@ -15,23 +15,23 @@ export default function AboutSection() {
           100,000+ unique pieces."
           />
           <div className="grid grid-cols-5 gap-4 mt-6">
-            <div className="col-span-3 bg-muted w-full h-full aspect-square">
+            <div className="col-span-3 bg-muted w-full h-full aspect-square group">
               <img
                 src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/one-piece-elbaf-s-ancient-mural.jpeg?q=49&fit=crop&w=825&dpr=2"
                 draggable={false}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105"
               />
             </div>
-            <div className="col-span-2 bg-card w-full h-full">
+            <div className="col-span-2 bg-muted w-full h-full group">
               <img
                 src="https://i.ytimg.com/vi/0qksElMl7R8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDJEzuoGlcNGTSAyxceupPIRK0eJA"
                 draggable={false}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110"
               />
             </div>
-            <div className="col-span-2 bg-primary w-full h-80">
+            <div className="col-span-2 bg-muted w-full h-80">
               <img
                 src="https://www.1101.com/store/techo/2023/detail_images/wb23_opmthnworld/extra_01.jpg"
                 draggable={false}
