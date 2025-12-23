@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import { CharacterDetail } from "@/shared/interfaces/character";
 import { gsap, ScrollTrigger } from "@/shared/lib/gsap";
@@ -34,7 +34,50 @@ const listCharacter: CharacterDetail[] = [
 
 export default function CharacterSection() {
   const characterCardRef = useRef<HTMLDivElement | null>(null);
+  const cardStageRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
+
+  function transitionToIndex(nextIndex: number) {
+    if (!cardStageRef.current) {
+      setActiveIndex(nextIndex);
+      return;
+    }
+
+    const current = activeIndexRef.current;
+    if (nextIndex === current) return;
+
+    const el = cardStageRef.current;
+
+    // Kill tween lama supaya tidak numpuk kalau scroll cepat
+    gsap.killTweensOf(el);
+
+    gsap
+      .timeline()
+      .to(el, {
+        opacity: 0,
+        x: -30,
+        scale: 0.98,
+        duration: 0.25,
+        ease: "power2.out",
+      })
+      .add(() => {
+        setActiveIndex(nextIndex);
+        activeIndexRef.current = nextIndex;
+      })
+      .set(el, { x: -16 })
+      .to(el, {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+  }
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -59,8 +102,8 @@ export default function CharacterSection() {
           trigger: section,
           start: "center bottom",
           end: "center center",
-          onEnter: () => setActiveIndex(index),
-          onEnterBack: () => setActiveIndex(index),
+          onEnter: () => transitionToIndex(index),
+          onEnterBack: () => transitionToIndex(index),
         });
       });
     });
@@ -80,7 +123,12 @@ export default function CharacterSection() {
           className="absolute top-0 flex items-center w-full h-screen"
         >
           <div className="w-full md:w-3/4 xl:w-1/2 scale-80 duration-300">
-            <CharacterCard character={listCharacter[activeIndex]} />
+            <div
+              ref={cardStageRef}
+              className="character-card-stage will-change-transform"
+            >
+              <CharacterCard character={listCharacter[activeIndex]} />
+            </div>
           </div>
         </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
@@ -7,10 +8,10 @@ type MosaicQuadGridProps = {
 };
 
 const sizeVariants = [
-  "row-span-24", // tinggi
-  "row-span-16", // medium
-  "row-span-20", // agak tinggi
-  "row-span-12", // pendek
+  "row-span-10 md:row-span-16 lg:row-span-24", // tinggi
+  "row-span-8  md:row-span-12 lg:row-span-16", // medium
+  "row-span-9  md:row-span-14 lg:row-span-20", // agak tinggi
+  "row-span-6  md:row-span-10 lg:row-span-12", // pendek
 ];
 
 export const MosaicQuadGrid: React.FC<MosaicQuadGridProps> = ({
